@@ -1,0 +1,274 @@
+        body.page-home #home-content-container {
+            position: relative;
+            z-index: 101;
+        }
+
+        #home-content {
+            margin: 0;
+            width: 250px;
+            float: left;
+            margin-top: 50px;
+        }
+
+        /**/ .search-controls.opaque-on-desktop {
+            background-color: rgba(55,47,69,.85);
+        }
+
+        .search-controls {
+            padding: 16px;
+            min-height: 220px;
+            border-radius: 8px;
+            background-color: #372f45;
+            color: #544c63;
+        }
+
+            .search-controls form {
+                position: relative;
+                margin: 0;
+                padding: 0;
+            }
+
+
+
+        [type=reset], [type=submit], button, html [type=button] {
+            -webkit-appearance: button;
+        }
+
+
+        button, select {
+            text-transform: none;
+        }
+
+
+
+        article, aside, details {
+            display: block;
+        }
+
+        .search-controls-places {
+            position: relative;
+            margin: 0 0 16px;
+        }
+
+        * {
+            -webkit-box-sizing: inherit;
+            box-sizing: inherit;
+        }
+
+        .search-controls-places .destination-place, .search-controls-places .origin-place {
+            position: relative;
+            float: left;
+            width: 48%;
+        }
+
+        * {
+            -webkit-box-sizing: inherit;
+            box-sizing: inherit;
+        }
+
+        .place-label {
+            font-size: 13px;
+            float: left;
+            color: #b6b1bd;
+        }
+
+        .search-controls label {
+            font-weight: 400;
+            margin: 0;
+        }
+
+        .search-controls input[type=text], input[type=date], input[type=number], select {
+            width: 100%;
+            line-height: 19px;
+            box-sizing: border-box;
+            padding: 8px;
+            font-size: 16px;
+            border-radius: 2px;
+            background-color: #fff;
+        }
+
+
+
+
+        button, input {
+            font: inherit;
+            margin: 0;
+        }
+
+
+        * {
+            -webkit-box-sizing: inherit;
+            box-sizing: inherit;
+        }
+
+
+
+        .search-controls label {
+            font-weight: 400;
+            margin: 0;
+        }
+
+
+
+        [type=reset], [type=submit], button, html [type=button] {
+            -webkit-appearance: button;
+        }
+
+        .search-controls-places .destination-place {
+            float: right !important;
+        }
+
+        .search-controls-places .destination-place, .search-controls-places .origin-place .depart .return {
+            position: relative;
+            float: left;
+            width: 48%;
+            margin-left: 5px;
+        }
+
+        .flights-hero-image {
+            position: relative;
+            top: 0;
+            left: 50%;
+            margin-left: -1000px;
+            max-width: none;
+            opacity: 0;
+            -moz-transition: opacity .8s;
+            -webkit-transition: opacity .8s;
+            -o-transition: opacity .8s;
+            transition: opacity .8s;
+        }
+
+        .flights-hero-image-container {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            overflow: hidden;
+            background-color: #f6f8fa;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            width: auto\9;
+        }
+
+        img {
+            border-style: none;
+        }
+
+        body.scaffold-font-size {
+            font-size: 13px;
+        }
+
+        body {
+            margin: 0;
+            color: #524c61;
+            font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Arial,sans-serif;
+            font-size: 1rem;
+            line-height: 1.5rem;
+        }
+
+            body.page-home #content-wrap {
+                width: 100%;
+            }
+
+        .wrap {
+            margin: 0 auto;
+            width: 1048px;
+        }
+
+        #pagewrap, .wrap {
+            position: relative;
+        }
+
+        .clearfix::after, .clearfix::before {
+            content: '';
+            display: table;
+        }
+
+        #pagewrap, .wrap {
+            position: relative;
+        }
+
+
+
+        .search-button {
+            margin-top: 10px;
+        }
+
+        #content-main {
+            margin: 0;
+            width: 600px;
+            float: left;
+            margin: 50px;
+            background-color: #544c63;
+            border-radius: 6px;
+            margin-bottom: 22px;
+            font-size: 13px;
+            line-height: 1.231em;
+        }
+
+
+
+
+
+        .day-content .day-main-content, .day-content .day-nav-header {
+            float: right;
+            width: 75%;
+            clear: right;
+            margin-bottom: 2px;
+            position: relative;
+        }
+
+        .day-content ul {
+            color: #34363d;
+        }
+
+        .day-list-item {
+            overflow: hidden;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: white;
+            margin-left: -25px;
+            margin-right: 15px;
+            margin-bottom: 10px;
+        }
+
+        article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {
+            display: block;
+        }
+
+
+
+        .group-price {
+            margin: 5px;
+        }
+
+        .leg-details {
+            width: 75%;
+        }
+
+        .more-info {
+            width: 25%;
+        }
+
+        li.no-sessions {
+            display: block;
+        }
+
+        li + li.no-sessions {
+            display: none;
+        }
+
+        .ng-valid input[type=text], input[type=date], input[type=number] {
+            color: #fff;
+            background-color: rgba(146, 253, 156, 0.5);
+            border-color: #92fd9c;
+            box-shadow: inset 2px 2px 2px #92fd9c;
+        }
+
+        .ng-invalid put[type=text], input[type=date], input[type=number] {
+            color: #850000;
+            background: rgba(254, 186, 186, 0.5);
+            border: 1px solid #850000;
+        }

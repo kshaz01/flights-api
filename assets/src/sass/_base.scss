@@ -1,0 +1,37 @@
+// Colors
+// Standard names for basic colours across the site.
+// Color names should not be color related for ease of changing down the line.
+// $light, $mid, $dark used for shades of grey / tonal only.
+
+$text: #544c63;
+$text_bg: #372f45;
+$ul_results:#34363d;
+$white_bg:#fff;
+$image_bg:#f6f8fa;
+$label:#b6b1bd;
+$body:#524c61;
+//
+$animVars: 0.4s ease-in-out;
+$animVarsSlower: 0.8s ease-in-out;
+$entryAnimVars: 0.8s ease-out;
+$basesize:1rem;
+
+// Mixins
+@mixin clearfix {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin mq($mw, $dir: "max") {
+    @media screen and (#{$dir}-width: #{$mw}) {
+        @content;
+    }
+}
+@mixin mq_h($mw, $dir: "max") {
+    @media screen and (#{$dir}-height: #{$mw}) {
+        @content;
+    }
+}

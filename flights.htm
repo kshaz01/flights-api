@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html ng-app="ej" class="no-js" lang="en-GB">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>flights api</title>
+    <link rel="stylesheet" href="assets/dist/css/main.css">
+    
+
+</head>
+<body class="page-home" ng-controller="flightsCtrl">
+    <div id="pagewrap">
+        <div id="content-wrap" class="wrap clearfix">
+
+            <div class="" id="home-content-container">
+
+                <div class="flights-hero-image-container">
+                    <img class="flights-hero-image"
+                         src="assets/src/img/banners/01-09-16-DL2097_homepage_banners_1920x605_en.jpg"
+                         style="opacity: 1;">
+                </div>
+                <div class="wrap clearfix">
+                    <div id="home-content">
+                        <section class="search-controls   opaque-on-desktop">
+                            <form class="clearfix">
+
+                                <section class="traditional-search clearfix" style="display: block;">
+
+                                    <div class="origin-place clearfix">
+                                        <label class="place-label">From</label>
+
+                                        <select id="from" name="from" ng-model="airportFromCode">
+                                            <option value="LGW" selected>London Luton (LTN)</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="destination-place">
+                                        <label class="place-label">To</label>
+
+                                        <select id="to" name="to" ng-model="airportToCode">
+                                            <option value="SXF" selected>Berlin Schoenefeld (SXF)</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="origin-place">
+                                        <label class="place-label">Depart</label>
+                                        <input type="date" value="10/06/2017" data-date="2017-06-10" id="StartDate" name="StartDate" ng-model="startDate">
+                                    </div>
+                                    <div class="destination-place">
+                                        <label class="place-label">Return</label>
+                                        <input type="date" value="27/06/2017" data-date="2017-06-27" id="EndDate" name="EndDate" ng-model="endDate">
+                                    </div>
+
+                                    <div class="search-controls-places clearfix">
+
+                                        <div class="origin-place">
+                                            <label class="place-label">Adult</label>
+                                            <input type="number" min="1" pattern="^\d*$" inputmode="numeric" ng-model="adult" value="1">
+
+                                        </div>
+                                        <div class="destination-place">
+
+                                            <label class="place-label">Child</label>
+                                            <input type="number" min="0" pattern="^\d*$" inputmode="numeric" ng-model="child" value="0">
+
+
+
+                                        </div>
+
+                                    </div>
+                                    <button class="search-button" type="button" tabindex="1" ng-click="searchButton()">
+                                        <span>Search flights</span>
+                                    </button>
+
+
+                                </section>
+
+                            </form>
+                        </section>
+                    </div>
+
+                    <div id="content-main" class="" ng-hide="!flights.length">
+                        <div class="day-main-content">
+                            <ul class="day-list clearfix fss-tap-anywhere tap-b">
+                                <li class="day-list-item clearfix" ng-repeat="x in flights">
+                                    <article>
+                                        <div class="group-price">
+
+
+                                            <div class="leg-details">
+                                                <div class="depart">
+                                                    <span class="station-tooltip">
+                                                        <span class="times">
+                                                            {{x.localDepartureTime | date:"dd/MM/yyyy '@' h:mma"}}
+                                                        </span>
+                                                        <span class="stop-station">
+                                                            {{x.departureAirport}}
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                <div class="arrive">
+                                                    <span class="station-tooltip" data-id="12703">
+                                                        <span class="times">{{x.localArrivalTime | date:"dd/MM/yyyy '@' h:mma"}}</span>
+                                                        <span class="stop-station">{{x.arrivalAirport}}</span>
+                                                    </span>
+                                                </div>
+
+                                                <div class="price">
+
+                                                    <span>
+                                                        Adult price: {{x.prices.adult.value * adult | currency:"£"}} x {{adult}}
+                                                    </span>
+                                                    <span ng-show="child > 0">
+                                                        Child price: {{x.prices.child.value * child | currency:"£" }} x {{child}}
+                                                    </span>
+                                                    <span>
+                                                        Total : {{(x.prices.adult.value * adult) + (x.prices.child.value * child) | currency:"£"}}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="more-info">
+                                                <span>View More</span>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </li>
+
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="assets/dist/js/main_jq.js"></script>
