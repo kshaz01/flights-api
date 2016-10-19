@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>flights api</title>
     <link rel="stylesheet" href="assets/dist/css/main.min.css">
-    
+	<link rel="stylesheet" href="http://likeastore.github.io/ngDialog/css/ngDialog.css">
+	<link rel="stylesheet" href="http://likeastore.github.io/ngDialog/css/ngDialog-theme-default.css">
+   
 
 </head>
 <body class="page-home" ng-controller="flightsCtrl">
@@ -70,6 +72,8 @@
                                     </div>
                                     <button class="search-button" type="button" tabindex="1" ng-click="searchButton()">
                                         <span>Search flights</span>
+										
+									
                                     </button>
 
 
@@ -119,7 +123,11 @@
                                                 </div>
                                             </div>
                                             <div class="more-info">
-                                                <span>View More</span>
+                                                <span>View More
+												
+												<a href="#" ng-click="open(x)" class="demo">Demo</a>
+												</span>
+												
                                             </div>
                                         </div>
                                     </article>
@@ -136,6 +144,62 @@
     </div>
 </body>
 </html>
+<script type="text/ng-template" id="firstDialog">
+			<div class="ngdialog-message">
+				<h2>Native Angular.js solution</h2>
+				 <p ng-bind-html="ngDialogData.image"></p>
+				<div>With ngDialog you don't need jQuery or Bootstrap to create dialogs for <code>ng-app:</code></div>
+				<ul class="mt">
+					<li>Use it in controllers, factories or directives</li>
+					<li>Create your own directives</li>
+					<li>Style all UI and templates</li>
+					<li>Configure themes</li>
+					<li>Add animations and effects</li>
+				</ul>
+				<div class="mt">Module is shipped with both <code>ngDialog</code> service and default directive.</div>
+			</div>
+
+		</script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-<script src="assets/dist/js/main_jq.js"></script>
+<script src="assets/dist/js/ngDialog.min.js"></script>
+<!--<script src="assets/dist/js/main_jq.js"></script>-->
+
+<script>
+			var app = angular.module('ej', ['ngDialog']);
+		    app.controller("flightsCtrl", function ($scope, $http, ngDialog) {
+			 $http.get('http://ejtestbed.herokuapp.com/flights').success(function (response) {
+				console.log("success!");
+				$scope.ejdata = response;
+			});
+        //data filter
+        $scope.searchButton = function () {
+            $scope.flights = $scope.ejdata.filter(function (ele) {
+                $scope.departureTime = new Date(ele.localDepartureTime);
+                $scope.arrivalTime = new Date(ele.localArrivalTime);
+                $scope.seatsAvailable = ele.seatsAvailable;
+
+                $scope.seatsRequest = $scope.adult + $scope.child;
+                return ($scope.departureTime > $scope.startDate && $scope.arrivalTime < $scope.endDate && $scope.seatsAvailable >= $scope.seatsRequest
+                    && ele.departureAirportCode == $scope.airportFromCode
+                    && ele.arrivalAirportCode == $scope.airportToCode)
+
+            });
+        }
+		$scope.open = function (x) {
+				var newScope = $scope.$new();
+				newScope.image = x;
+				ngDialog.open({
+					template: 'firstDialog',
+					controller: 'flightsCtrl',
+					className: 'ngdialog-theme-default ngdialog-theme-custom',
+					scope: newScope
+				});
+				
+			};
+		});
+	
+				
+
+		</script>
+
